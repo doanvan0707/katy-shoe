@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'Customer\CustomerController@index');
+Route::get('/', 'Customer\CustomerController@index')->name('customer.index');
 
-
+// Admin Login
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'middleware' => 'admin-login'], function () {
    Route::get('/', 'PageController@index')->name('index');
 });
@@ -23,11 +23,27 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin'], fu
     Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout')->name('logout');
 });
+//***************************************************//
+
+// Admin manage users
+
+Route::get('admin/users', 'UserController@index')->name('users.index');
+Route::get('admin/users/create', 'UserController@create')->name('users.create');
+Route::post('admin/users', 'UserController@store')->name('users.store');
+Route::get('admin/users/{id}/edit', 'UserController@edit')->name('users.edit');
+Route::put('admin/users/{id}', 'UserController@update')->name('users.update');
+Route::get('admin/users/{id}', 'UserController@show')->name('users.show');
+Route::delete('admin/users/{id}', 'UserController@destroy')->name('users.destroy');
 
 
+//***************************************************//
+// Login users
 
+Route::group(['prefix' => 'customer', 'as' => 'customer.', 'namespace' => 'Customer'], function(){
+	Route::get('/login', 'CustomerController@login')->name('login');
+	Route::post('/login', 'CustomerController@showLoginForm')->name('loginform');
+	Route::get('/logout', 'CustomerController@logout')->name('logout');
+});
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

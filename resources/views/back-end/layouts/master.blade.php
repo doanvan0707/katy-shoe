@@ -6,7 +6,7 @@
   <title>AdminLTE 2 | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  
+  <link rel="stylesheet" href="{{  url ('css/app.css')}}">
   @include('back-end.layouts.css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,6 +28,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    @yield('content')
   </div>
   <!-- /.content-wrapper -->
   @include('back-end.layouts.footer')

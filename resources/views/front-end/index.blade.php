@@ -7,8 +7,12 @@
 </head>
 <body>
   <div>
-    <a href="{{ route('admin.index') }}">Login</a>
-    <a href="{{ route('admin.logout') }}">Logout</a>
+  	@if(isset($user))
+		{{ $user->name }}
+		
+  	@endif
+    <a href="{{ route('customer.login') }}">Login</a>
+    <a href="{{ route('customer.logout') }}">Logout</a>
   </div>
 </body>
 </html>

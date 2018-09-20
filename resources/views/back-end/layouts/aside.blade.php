@@ -45,10 +45,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href=""><i class="fa fa-circle-o"></i>List</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Add</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Edit</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>View</a></li>
+            <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o"></i>List</a></li>
           </ul>
         </li>
        	<li class="treeview">
@@ -60,9 +57,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i>List</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Add</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Edit</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>View</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -74,9 +68,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href=""><i class="fa fa-circle-o"></i>List</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Add</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>Edit</a></li>
-            <li><a href=""><i class="fa fa-circle-o"></i>View</a></li>
           </ul>
         </li>
         <li class="treeview">
