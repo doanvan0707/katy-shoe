@@ -10,8 +10,9 @@ class UserController extends Controller
 {
     public function index()
     {
-    	$users = User::all();
-    	return view('back-end.users.list', compact('users'));
+        $users = User::all();
+    	$roles = Role::all();
+    	return view('back-end.users.list', compact('users', 'roles'));
     }
 
     /**

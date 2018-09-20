@@ -1,44 +1,56 @@
-@extends('back-end.layouts.master')
+@extends('layouts.admin')
 @section('content')
 <div class="container">
-	<form action="" method="post">
-		{{ csrf_field() }}
-		<label for="">Tìm kiếm</label>
-		<input type="text" placeholder="Search" class="fom-control">
-		<input type="submit" value="Search">
-	</form>
-	<a href="{{ route('users.create') }}">Add User</a>    
-    <tr id="members-repeat-container" ng-repeat="">
-    <td>You</td>
-    </tr>
-   </table>   
-	<table class="table">
-		<tr>
-		    <th scope="col">ID</th>
-			<th scope="col">Username</th>
-			<th scope="col">Email</th>
-			<th scope="col">Password</th>
-			<th scope="col">Role</th>
-			<th scope="col">Edit</th>
-			<th scope="col">Delete</th>
-	    </tr>
+	<a href="{{ route('users.create') }}" class="btn btn-primary">Add User</a>
+	<br>       
+	<table class="table table-dark table-striped">
+		<thead>
+			<tr>
+			    <th>ID</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Password</th>
+				<th>Role</th>
+				<th>Edit</th>
+				<th>Delete</th>
+		    </tr>
+		</thead>
 		@foreach($users as $user)
-		<tr>
-			<td scope="col">{{ $user->id }}</td>
-			<td scope="col">{{ $user->name }}</td>
-			<td scope="col">{{ $user->email }}</td>
-			<td scope="col">{{ $user->password }}</td>
-			<td scope="col">{{ $user->role_id }}</td>
-			<td scope="col"><a href="{{ route('users.edit', $user->id) }}">Edit</a></td>
-			<td scope="col">
-				<form action="{{ route('users.destroy', $user->id) }}" method="post">
-					{{ csrf_field() }}
-					{{ method_field('DELETE') }}
-					<input type="submit" value="Delete">
-				</form>
-			</td>
-		</tr>
+			<tbody>
+				<tr>
+					<td>{{ $user->id }}</td>
+					<td>{{ $user->name }}</td>
+					<td>{{ $user->email }}</td>
+					<td>{{ $user->password }}</td>
+					<td>{{ $user->role_id }}</td>
+					<td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Edit</a></td>
+					<td>
+						<form action="{{ route('users.destroy', $user->id) }}" method="post">
+							{{ csrf_field() }}
+							{{ method_field('DELETE') }}
+							<input type="submit" value="Delete" class="btn btn-danger">
+						</form>
+					</td>
+				</tr>
+			</tbody>	
 		@endforeach	
+	</table>
+	<h2>Role</h2>
+	<table class="table table-dark table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+			</tr>
+		</thead>
+		@foreach($roles as $role)
+			<tbody>
+				<tr>
+					<td>{{ $role->id }}</td>
+					<td>{{ $role->name }}</td>
+				</tr>
+			</tbody>
+		@endforeach
 	</table>
 </div>
 @endsection

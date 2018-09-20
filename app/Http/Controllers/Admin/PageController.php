@@ -10,6 +10,6 @@ class PageController extends Controller
 {
     public function index()
     { 
-    	return view('back-end.layouts.master');
+    	return view('layouts.admin');
     }
 }
